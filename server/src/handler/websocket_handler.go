@@ -5,6 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
+    "github.com/sho621bake/real-time-chat-app/src/domain"
+
 )
 
 type WebsocketHandler struct {}
