@@ -4,10 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/sho621bake/real-time-chat-app/src/domain"
 	"github.com/sho621bake/real-time-chat-app/src/handler"
 )
 
 func main() {
+	hub := domain.NewHub()
+	go hub.RunLoop()
 	http.HandleFunc("/ws", handlers.NewWebsocketHandler().Handle)
 
 	port := "80"
