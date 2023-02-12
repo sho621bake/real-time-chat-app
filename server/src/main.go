@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-
-	"github.com/TadayoshiOtsuka/simple_chat/src/handlers"
+	"github.com/sho621bake/real-time-chat-app/src/handler"
 )
 
 func main() {
-+	http.HandleFunc("/ws", handlers.NewWebsocketHandler().Handle)
+	http.HandleFunc("/ws", handler.NewWebsocketHandler().Handle)
 
 	port := "80"
 	log.Printf("Listening on port %s", port)
