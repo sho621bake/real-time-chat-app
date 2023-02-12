@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/ws", handler.NewWebsocketHandler().Handle)
+	http.HandleFunc("/ws", handlers.NewWebsocketHandler().Handle)
 
 	port := "80"
 	log.Printf("Listening on port %s", port)
@@ -16,3 +16,4 @@ func main() {
 		log.Panicln("Serve Error:", err)
 	}
 }
+
