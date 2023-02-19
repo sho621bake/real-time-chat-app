@@ -12,7 +12,7 @@ type WebsocketHandler struct {
 	hub *domain.Hub
 }
 
-func NewWebsocketHandler() *WebsocketHandler {
+func NewWebsocketHandler(hub *domain.Hub) *WebsocketHandler {
 	return &WebsocketHandler{
 		hub: hub,
 	}
