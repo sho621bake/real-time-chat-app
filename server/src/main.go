@@ -6,13 +6,13 @@ import (
 	"net/http"
 
 	"github.com/sho621bake/real-time-chat-app/src/domain"
-	"github.com/sho621bake/real-time-chat-app/src/handler"
+	handlers "github.com/sho621bake/real-time-chat-app/src/handler"
 )
 
 func main() {
 	hub := domain.NewHub()
 	go hub.RunLoop()
-	http.HandleFunc("/ws", handlers.NewWebsocketHandler().Handle)
+	http.HandleFunc("/ws", handlers.NewWebsocketHandler(hub).Handle)
 
 	port := "80"
 	log.Printf("Listening on port %s", port)
