@@ -12,7 +12,7 @@ func NewHub() *Hub {
 		Clients:      make(map[*Client]bool),
 		RegisterCh:   make(chan *Client),
 		UnRegisterCh: make(chan *Client),
-		BroadcastCh:  make(chan Message),
+		BroadcastCh:  make(chan []byte),
 	}
 }
 
