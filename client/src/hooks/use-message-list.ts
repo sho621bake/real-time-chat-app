@@ -3,7 +3,7 @@ import { messageListAtom } from '../state/message'
 import { useRecoilCallback, useRecoilValue } from 'recoil'
 import { Message } from '../models/message'
 
-export const useSendMessage = (): Message[] => {
+export const useSendMessageList = (): Message[] => {
     const socket = useRecoilValue(websocketAtom)
     const messageList = useRecoilValue(messageListAtom)
 
