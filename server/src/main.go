@@ -6,11 +6,14 @@ import (
 	"net/http"
 
 	"github.com/sho621bake/real-time-chat-app/src/domain"
-	handlers "github.com/sho621bake/real-time-chat-app/src/handler"
+	"github.com/sho621bake/real-time-chat-app/src/handler"
+	"github.com/sho621bake/real-time-chat-app/src/services"
 )
 
 func main() {
-	hub := domain.NewHub()
+	pubsub := services.NewPubSubService()
+	hub := domain.NewHub(pubsub)
+	go hub.SubscribeMessages(pubsub)
 	go hub.RunLoop()
 	http.HandleFunc("/ws", handlers.NewWebsocketHandler(hub).Handle)
 
@@ -20,4 +23,3 @@ func main() {
 		log.Panicln("Serve Error:", err)
 	}
 }
-
