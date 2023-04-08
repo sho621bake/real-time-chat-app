@@ -5,16 +5,17 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/sho621bake/real-time-chat-app/server/src/domain"
-	"github.com/sho621bake/real-time-chat-app/server/src/handler/"
-	"github.com/sho621bake/real-time-chat-app/server/src/services"
+	"github.com/sho621bake/real-time-chat-app/src/domain"
+	"github.com/sho621bake/real-time-chat-app/src/handler"
+	"github.com/sho621bake/real-time-chat-app/src/services"
 )
 
 func main() {
 	pubsub := services.NewPubSubService()
 	hub := domain.NewHub(pubsub)
-	go hub.SubscribeMessages(pubsub)
+	go hub.SubscribeMessages()
 	go hub.RunLoop()
+
 	http.HandleFunc("/ws", handlers.NewWebsocketHandler(hub).Handle)
 
 	port := "80"

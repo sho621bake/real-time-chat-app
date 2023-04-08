@@ -3,7 +3,7 @@ package domain
 import (
 	"context"
 
-	"github.com/sho621bake/real-time-chat-app/server/src/services"
+	"github.com/sho621bake/real-time-chat-app/src/services"
 )
 
 type Hub struct {

@@ -12,9 +12,9 @@ type PubSubService struct {
 
 func NewPubSubService() *PubSubService {
 	c := redis.NewClient(&redis.Options{
-		Addr:   "redis:6379",
+		Addr:     "redis:6379",
 		Password: "",
-		DB: 0,
+		DB:       0,
 	})
 
 	return &PubSubService{
