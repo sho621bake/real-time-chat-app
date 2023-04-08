@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/sho621bake/real-time-chat-app/server/src/domain"
-	"github.com/sho621bake/real-time-chat-app/server/src/handler"
+	"github.com/sho621bake/real-time-chat-app/server/src/handler/"
 	"github.com/sho621bake/real-time-chat-app/server/src/services"
 )
 
